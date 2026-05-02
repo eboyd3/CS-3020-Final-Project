@@ -1,4 +1,6 @@
 using System.Linq;
+using System.IO;
+
 namespace CS_3020_FInal_Project
 {
     public partial class Form1 : Form
@@ -28,9 +30,7 @@ namespace CS_3020_FInal_Project
 
         private void RollButton_Click(object sender, EventArgs e)
         {
-            session = new DiceSession(); // fresh session each roll
-
-            // add the right die based on selection
+            session.ClearDice();
             if (rbD6.Checked)
                 session.AddDie(new D6());
             else if (rbD20.Checked)
@@ -38,16 +38,15 @@ namespace CS_3020_FInal_Project
             else if (rbCustom.Checked)
                 session.AddDie(new CustomDie((int)numSides.Value));
 
-            // roll and show result
             List<int> results = session.RollAll();
-            ResultsLabel.Text = "Results: " + string.Join(", ", results);
+            ResultsLabel.Text = "Result: " + string.Join(", ", results);
 
-            // add to history box
             HistoryBox.Items.Add("Rolled: " + string.Join(", ", results));
 
-            // update stats
-            StatsLabel.Text = $"Total Rolls: {HistoryBox.Items.Count}\n" +
-                            $"Last Roll: {string.Join(", ", results)}";
+            // now these reflect ALL rolls, not just the current one
+            StatsLabel.Text = $"Total Rolls: {session.GetTotalRolls()}\n" +
+                            $"Average: {session.GetAverage():F2}\n" +
+                            $"Most Frequent: {session.GetMostFrequent()}";
         }
 
         private void rbCustom_CheckedChanged(object sender, EventArgs e)
@@ -63,6 +62,26 @@ namespace CS_3020_FInal_Project
         private void rbD6_CheckedChanged(object sender, EventArgs e)
         {
             numSides.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (session.GetTotalRolls() == 0)
+            {
+                MessageBox.Show("No rolls to save yet!");
+                return;
+            }
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Text Files (*.txt)|*.txt";
+            dialog.FileName = "DiceHistory";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                RollHistoryLogger logger = new RollHistoryLogger(dialog.FileName, session);
+                logger.SaveToFile();
+                MessageBox.Show("History saved successfully!");
+            }
         }
     }
 
@@ -119,6 +138,10 @@ namespace CS_3020_FInal_Project
         {
             dice.Add(die);
         }
+        public void ClearDice()
+        {
+            dice.Clear();
+        }
 
         public List<int> RollAll()
         {
@@ -162,7 +185,40 @@ namespace CS_3020_FInal_Project
                 //converts the groups to a dictionary, the roll value becoming the key and the count becoming the value
                 .ToDictionary(g => g.Key, g => g.Count());
         }
+
+        //returns the history of rolls as a string with each roll on a new line
+        public string GetHistoryAsText()
+        {
+            string output = "";
+            foreach (int roll in rollHistory)
+            {
+                output += roll + "\n";
+            }
+            return output;
+        }
     }//end class DiceSession
-}
+
+    class RollHistoryLogger
+    {
+        private string filePath;
+        private DiceSession session;
+
+        public RollHistoryLogger(string filePath, DiceSession session)
+        {
+            this.filePath = filePath;
+            this.session = session;
+        }
+
+        public void SaveToFile()
+        {
+            string content = "=== Dice Roll History ===\n" +
+                             session.GetHistoryAsText() +
+                             $"\nTotal Rolls: {session.GetTotalRolls()}" +
+                             $"\nAverage: {session.GetAverage():F2}" +
+                             $"\nMost Frequent: {session.GetMostFrequent()}";
+            File.WriteAllText(filePath, content);
+        }
+    }//end class RollHistoryLogger
+}//end namespace CS_3020_FInal_Project
 
 
