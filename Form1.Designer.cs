@@ -37,6 +37,7 @@
             ResultsLabel = new Label();
             HistoryBox = new ListBox();
             StatsLabel = new Label();
+            SaveHistoryB = new Button();
             DiceType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numSides).BeginInit();
             SuspendLayout();
@@ -129,18 +130,29 @@
             // StatsLabel
             // 
             StatsLabel.AutoSize = true;
-            StatsLabel.Location = new Point(621, 370);
+            StatsLabel.Location = new Point(597, 356);
             StatsLabel.Name = "StatsLabel";
             StatsLabel.Size = new Size(41, 20);
             StatsLabel.TabIndex = 5;
             StatsLabel.Text = "Stats";
             StatsLabel.Click += label2_Click;
             // 
+            // SaveHistoryB
+            // 
+            SaveHistoryB.Location = new Point(587, 424);
+            SaveHistoryB.Name = "SaveHistoryB";
+            SaveHistoryB.Size = new Size(114, 30);
+            SaveHistoryB.TabIndex = 6;
+            SaveHistoryB.Text = "Save Results";
+            SaveHistoryB.UseVisualStyleBackColor = true;
+            SaveHistoryB.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 488);
+            Controls.Add(SaveHistoryB);
             Controls.Add(StatsLabel);
             Controls.Add(HistoryBox);
             Controls.Add(ResultsLabel);
@@ -168,5 +180,6 @@
         private Label ResultsLabel;
         private ListBox HistoryBox;
         private Label StatsLabel;
+        private Button SaveHistoryB;
     }
 }
