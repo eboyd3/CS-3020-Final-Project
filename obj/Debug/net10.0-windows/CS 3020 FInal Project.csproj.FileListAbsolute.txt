@@ -1,0 +1,16 @@
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS_3020_FInal_Project.Form1.resources
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.csproj.GenerateResource.cache
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.AssemblyInfoInputs.cache
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.AssemblyInfo.cs
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.csproj.CoreCompileInputs.cache
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\bin\Debug\net10.0-windows\CS 3020 FInal Project.exe
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\bin\Debug\net10.0-windows\CS 3020 FInal Project.deps.json
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\bin\Debug\net10.0-windows\CS 3020 FInal Project.runtimeconfig.json
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\bin\Debug\net10.0-windows\CS 3020 FInal Project.dll
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\bin\Debug\net10.0-windows\CS 3020 FInal Project.pdb
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.dll
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\refint\CS 3020 FInal Project.dll
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.pdb
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\CS 3020 FInal Project.genruntimeconfig.cache
+C:\Users\fullm\Desktop\College(UCCS)\Spring 2026\C#\CS 3020 FInal Project\obj\Debug\net10.0-windows\ref\CS 3020 FInal Project.dll
