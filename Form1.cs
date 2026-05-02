@@ -29,7 +29,8 @@ namespace CS_3020_FInal_Project
         }
 
         private void RollButton_Click(object sender, EventArgs e)
-        {
+        {   
+            //resets chosen dice, so multiple dice aren't rolling at once
             session.ClearDice();
             if (rbD6.Checked)
                 session.AddDie(new D6());
@@ -43,7 +44,7 @@ namespace CS_3020_FInal_Project
 
             HistoryBox.Items.Add("Rolled: " + string.Join(", ", results));
 
-            // now these reflect ALL rolls, not just the current one
+            //Shows stats of all rolls in the session, including total rolls, average, and most frequent value
             StatsLabel.Text = $"Total Rolls: {session.GetTotalRolls()}\n" +
                             $"Average: {session.GetAverage():F2}\n" +
                             $"Most Frequent: {session.GetMostFrequent()}";
@@ -66,16 +67,18 @@ namespace CS_3020_FInal_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Checks if there are any rolls to save before opening the save dialog
             if (session.GetTotalRolls() == 0)
             {
                 MessageBox.Show("No rolls to save yet!");
                 return;
             }
-
+            //Opens a save file dialog to allow the user to choose where to save their roll history
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "Text Files (*.txt)|*.txt";
             dialog.FileName = "DiceHistory";
 
+            //If the user selects a file and clicks "Save", the roll history is saved to the chosen file using the RollHistoryLogger class
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 RollHistoryLogger logger = new RollHistoryLogger(dialog.FileName, session);
